@@ -1,20 +1,127 @@
-<!-- <<<<<<< HEAD -->
-# React + Vite
+# ✨ Daily Quest – React To-Do App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and interactive task-tracking application built using **React + Vite**, featuring task creation, priority/category tagging, a progress tracker, and automatic saving through **localStorage**.
 
-Currently, two official plugins are available:
+This app helps you manage daily tasks like missions — Level Up every day! ⚔️✨
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### ➕ Add Tasks  
+- Input task name  
+- Select priority: High / Medium / Low  
+- Select category: Work / Personal / General  
 
-## Expanding the ESLint configuration
+### ✏️ Update Tasks  
+- Mark tasks as **Complete / Undo**  
+- UI updates instantly using React state
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-<!-- =======
-# DailyQuest
->>>>>>> 10963407ed83538ad1b76a53c1aba1a8f967e6f0 -->
+### 🗑 Delete Tasks  
+- Delete individual tasks  
+- Clear all tasks at once  
+
+### 🔄 Persistent Data  
+- Tasks are stored in **localStorage**  
+- Reloaded automatically when the app restarts
+
+### 📊 Progress Tracker  
+- Displays completed tasks vs total tasks  
+- Animated progress bar showing percentage completion
+
+---
+
+## 🛠 Tech Stack
+
+- **React (Vite)**
+- **JavaScript ES6**
+- **CSS3**
+- **LocalStorage**
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│
+├── Components/
+│   ├── Taskform.jsx
+│   ├── Tasklist.jsx
+│   └── Progresstracker.jsx
+│
+├── App.jsx
+├── main.jsx
+└── style.css
+```
+
+---
+
+## 🧠 How It Works
+
+### 1. State Management
+All tasks are stored in:
+```js
+const [tasks, setTasks] = useState([]);
+```
+
+### 2. Loading Tasks on Startup
+```js
+useEffect(() => {
+  const saved = localStorage.getItem("tasks");
+  if (saved) setTasks(JSON.parse(saved));
+}, []);
+```
+
+### 3. Saving Tasks on Change
+```js
+useEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}, [tasks]);
+```
+
+### 4. Add Task
+`Taskform` sends:
+```js
+{text, priority, category, completed: false}
+```
+to `App`, which adds it to the list.
+
+### 5. Update Task
+Used for toggling completion or modifying a task.
+
+### 6. Delete Task
+Removes a task by index.
+
+### 7. Progress Tracker
+Calculates:
+- number of completed tasks  
+- total tasks  
+- percentage completed  
+
+and updates the progress bar.
+
+---
+
+## 🏃‍♀️ How to Run
+
+### Install dependencies
+```bash
+npm install
+```
+
+### Start development server
+```bash
+npm run dev
+```
+
+---
+
+## 📸 Screenshots
+
+
+---
+
+## 📜 License
+This project is open-source and free to use.
+
