@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import "./style.css";
+
 import Landing from './pages/Landing';
 import Todo from './pages/Todo';
 import Exit from './pages/Exit';

@@ -32,31 +32,43 @@ export default function Exit() {
     // Stage 1 confirmation
     if (stage === 1) {
         return (
-            <>
+            <div className="system-landing">
+                <div className="system-window">
             <h1>Are You Sure Player?</h1>
-            <button onClick={() => setStage(2)}>YES</button>
-            <button onClick={() => navigate("/")}>NO</button>
-            </>
+            <div className="system-buttons">
+            <button className="sys-btn yes" onClick={() => setStage(2)}>YES</button>
+            <button className="sys-btn no" onClick={() => navigate("/")}>NO</button>
+            </div>
+            </div>
+            </div>
         );
     }
    // Stage 2 confirmation
     if (stage === 2) {
         return (
-            <>
+             <div className="system-landing">
+                <div className="system-window">
             <h1>Are you REALLY sure?</h1>
-            <button onClick={() => setStage(3)}>YES</button>
-            <button onClick={() => navigate("/")}>NO</button>
-            </>
+             <div className="system-buttons">
+            <button className="sys-btn yes" onClick={() => setStage(3)}>YES</button>
+            <button className="sys-btn no" onClick={() => navigate("/")}>NO</button>
+            </div>
+            </div>
+            </div>
         );
     }
     // Stage 3 confirmation
     if (stage === 3) {
         return (
-            <>
-            <h1>Are You Sure Player?</h1>
-            <button onClick={() => setGlitch(true)}>YES</button>
-            <button onClick={() => setGlitch(true)}>YESS</button>
-            </>
+            <div className="system-landing">
+                <div className="system-window">
+                    <h1>SYSTEM SAYS NO.</h1>
+                    <div className="system-buttons">
+                        <button className="sys-btn" onClick={() => setGlitch(true)}>HUH??</button>
+                        <button className="sys-btn" onClick={() => setGlitch(true)}>NO !</button>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
