@@ -39,11 +39,12 @@ export default function Taskform({addTask}) {
                 required/>
                 <button type="submit">Add Task</button>
             </div>
+        <div className="task-bar">    
             <div>
                 <DatePicker
                 selected={dueDate ? new Date(dueDate) : null}
                 onChange={(date)=>setDueDate(date.toISOString().split("T")[0])}
-                dateFormat="yyyy-MM-dd" placeholderText="Select date" 
+                dateFormat="yyyy-MM-dd" placeholderText="Select date" className="styled"
                 />
             </div>
             <div>
@@ -58,23 +59,24 @@ export default function Taskform({addTask}) {
                 timeCaption="Time"
                 dateFormat="HH:mm"
                 placeholderText="Select time"
+                className="styled"
                 />
             </div>
-            <div id="btns">
-                <select value={priority} 
-                onChange={(e)=>setPriority(e.target.value)}>
+                 <div id="btns">
+                    <select value={priority} 
+                    onChange={(e)=>setPriority(e.target.value)}>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
-                </select>
+                    </select>
 
-                <select value={category} 
-                onChange={(e) => setCategory(e.target.value)}>
+                    <select value={category} 
+                    onChange={(e) => setCategory(e.target.value)}>
                     <option value="general">General</option>
                     <option value="work">Work</option>
                     <option value="personal">Personal</option>
-                </select>
-
+                    </select>
+                </div>
             </div>
         </form>
     )
