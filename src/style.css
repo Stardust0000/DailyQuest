@@ -268,6 +268,123 @@ header p {
   text-shadow: var(--sys-glow);
 }
 
+/* -----------Date and Time -------------- */
+.due-info {
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.status-text {
+  font-size: 0.75rem;
+  margin: 2px 0;
+  opacity: 0.8;
+}
+
+.overdue {
+  color: #ff3b3bcf;
+  font-weight: bold;
+}
+
+.due-soon {
+  color: #ebf700c9;
+  font-weight: bold;
+}
+
+.date-picker,
+.time-picker {
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(0, 153, 255, 0.4);
+  color: #d5e8ff;
+  padding: 8px 12px;
+  border-radius: 6px ;
+  outline: none;
+  width: 150px ;
+  transition: 0.25s ease ;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Glow on focus */
+.date-picker:focus,
+.time-picker:focus {
+  border-color: #00aaff;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.7);
+  background: rgba(20, 20, 20, 0.95);
+}
+
+/* Placeholder text */
+.date-picker::placeholder,
+.time-picker::placeholder {
+  color: #6688aa;
+}
+
+/* POPUP PANEL (Calendar + Time Menu) */
+.react-datepicker {
+  background-color: #0f0f0f;
+  border: 1px solid rgba(0, 153, 255, 0.4) ;
+  box-shadow: 0 0 18px rgba(0, 153, 255, 0.25);
+  color: #cfe8ff ;
+  border-radius: 8px ;
+}
+
+/* Calendar header */
+.react-datepicker__header {
+  background-color: #141414;
+  color: white;
+  border-bottom: 1px solid rgba(0, 153, 255, 0.2);
+}
+
+/* Month + Day names */
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: #88bfff;
+  font-weight: 600;
+}
+
+/* Day numbers */
+.react-datepicker__day {
+  color: #d6eaff ;
+  border-radius: 4px ;
+  transition: 0.2s ease ;
+}
+
+/* Hover effect */
+.react-datepicker__day:hover {
+  background-color: rgba(0, 153, 255, 0.25) ;
+}
+
+.react-datepicker__day--selected {
+  background-color: #00aaff ;
+  color: #000 ;
+  box-shadow: 0 0 12px #364d59 ;
+  font-weight: 700 ;
+}
+
+/* Time selector panel */
+.react-datepicker__time-container {
+  border-left: 1px solid rgba(0, 153, 255, 0.2) ;
+}
+
+.react-datepicker__time-list-item {
+  background: #141414;
+  color: #d6eaff;
+  transition: 0.2s ease;
+}
+
+/* Hover time */
+.react-datepicker__time-list-item:hover {
+  background: rgba(0, 153, 255, 0.3);
+  color: #000;
+}
+
+/* Selected time */
+.react-datepicker__time-list-item--selected {
+  background-color: #00aaff;
+  color: #000;
+  box-shadow: 0 0 10px #00aaff;
+}
+
+
 /* ----------- Progress Tracker ----------- */
 .progress-tracker {
   margin-top: 20px;
