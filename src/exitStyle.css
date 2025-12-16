@@ -1,0 +1,43 @@
+.glitch-container {
+    text-align: center;
+    animation: screenShake 0.1s infinite alternate;
+}
+@keyframes screenShake {
+    0% {transform: translateX(-2px);}
+    100% {transform: translateX(2px);}
+}
+
+.loading-bar {
+    width: 80%;
+    height: 12px;
+    background: #333;
+    margin: 20px auto;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.loading-fill {
+    width: 0%;
+    height: 100%;
+    background: lightsalmon;
+    animation: fillBar 3s linear forwards;
+}
+
+@keyframes fillBar {
+    from { width: 0%;}
+    to {width: 100%;}
+}
+
+.glitch-text, .glitch-error {
+    animation: glitch 0.4s infinite;
+    color: crimson;
+    font-weight: bold;
+}
+
+@keyframes glitch {
+    0% {text-shadow: 2px 0 red;}
+    25% {text-shadow: -2px 0 cyan;}
+    50% {text-shadow: 2px 0 lime;}
+    75% {text-shadow: -2px 0 yellow;}
+    100% {text-shadow: 2px 0 magenta;}
+}

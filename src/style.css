@@ -1,0 +1,428 @@
+/* ----------- Global Reset ----------- */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #0a0f1f, #05070d 60%);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #e8f0ff;
+}
+
+/* ----------- System Color Variables ----------- */
+:root {
+  --sys-blue: #3b82f6;
+  --sys-cyan: #22d3ee;
+  --sys-glow: 0 0 20px rgba(34, 211, 238, 0.6);
+  --sys-blue-glow: 0 0 25px rgba(59, 130, 246, 0.6);
+  --sys-bg: rgba(255, 255, 255, 0.06);
+  --sys-border: rgba(59, 130, 246, 0.4);
+}
+
+/* ----------- Floating System Panel ----------- */
+.system-panel {
+  background: var(--sys-bg);
+  border: 1px solid var(--sys-border);
+  border-radius: 14px;
+  padding: 24px;
+  backdrop-filter: blur(14px);
+  box-shadow: var(--sys-blue-glow);
+  animation: panelFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes panelFloat {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-6px); }
+}
+
+/* ------------ App main Container ------------- */
+/* =============================================================
+   SOLO LEVELING SYSTEM PANEL MODE
+   ============================================================= */
+
+.system-window {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+
+  background: rgba(13, 25, 43, 0.45); /* deep blue glass */
+  border:2px solid rgba(59, 130, 246, 0.65);
+  border-radius: 20px; /*changed from 18px to 20px*/
+
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+
+  box-shadow:
+    0 0 25px rgba(59, 130, 246, 0.45),
+    inset 0 0 35px rgba(34, 211, 238, 0.25);
+
+  animation: systemFloat 4s ease-in-out infinite alternate;
+  position: relative;
+}
+
+/* Floating Anime Panel Effect */
+@keyframes systemFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+/* System Panel Corner Accent Lines */
+/* Removed this: ,.system-window::after */
+.system-window::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  /* border: 2px solid rgba(34, 211, 238, 0.4);   */
+}
+
+.system-window::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.system-window::after {
+  content: "";
+  position: absolute;
+  inset: 0;                    
+   /* FIXED: no more ghost border outside */
+  border: 2px solid rgba(0, 255, 255, 0.15);
+  border-radius: 20px;
+  pointer-events: none;
+
+  background: linear-gradient(
+    145deg,
+    rgba(0, 255, 255, 0.05),
+    rgba(0, 0, 0, 0)
+  ),linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03) 0%,
+    rgba(255,255,255,0.00) 50%,
+    rgba(255,255,255,0.03) 100%
+  );
+}
+
+/* Not needed */
+/* .system-window::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+} */
+
+/* Digital Scanline Glow */
+/* .system-window::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03) 0%,
+    rgba(255,255,255,0.00) 50%,
+    rgba(255,255,255,0.03) 100%
+  );
+  pointer-events: none;
+} */
+
+/* ----------- Header ----------- */
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  text-shadow: var(--sys-glow);
+  text-align: center;
+}
+
+header p {
+  margin: 4px 0 0;
+  color: #9db4ff;
+  text-align: center;
+}
+
+/* ----------- Task Form ----------- */
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* task-bar */
+
+.task-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+  flex-wrap: wrap; /* Keeps layout clean on small screens */
+}
+
+
+/* Input Box */
+#inp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  padding: 10px 14px;
+  background: rgba(17, 25, 40, 0.45);
+  border: 1px solid var(--sys-border);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--sys-glow);
+}
+
+#inp input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 15px;
+  color: #e6f7ff;
+}
+
+/* Add Button (System Button) */
+#inp button, .sys-btn {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6, #22d3ee);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  box-shadow: var(--sys-glow);
+  transition: 0.25s;
+  letter-spacing: 0.5px;
+}
+
+#inp button:hover, .sys-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 28px var(--sys-cyan);
+}
+
+/* Priority + Category Selectors */
+#btns select {
+  padding: 10px 14px;
+  margin: 5px;
+  background:rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--sys-border);
+  border-radius: 10px;
+  color: #e4f6ff;
+  font-size: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.25);
+}
+
+#btns select option {
+  background: rgba(17, 25, 40, 0.45);
+}
+
+/* ----------- Task List ----------- */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px;
+  margin: 10px;
+  background: rgba(17, 25, 40, 0.45);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.25);
+
+  transition: 0.25s;
+}
+
+.task-list li:hover {
+  transform: translateX(6px);
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
+}
+
+/* Completed Task Style */
+.task-list li.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+  border-color: rgba(22, 163, 74, 0.4);
+  box-shadow: 0 0 20px rgba(22, 163, 74, 0.3);
+}
+
+/* Buttons inside tasks (Delete / Toggle) */
+.task-list button {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--sys-cyan);
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.task-list button:hover {
+  transform: translateY(-2px);
+  color: #67e8f9;
+  text-shadow: var(--sys-glow);
+}
+
+/* -----------Date and Time -------------- */
+.due-info {
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.status-text {
+  font-size: 0.75rem;
+  margin: 2px 0;
+  opacity: 0.8;
+}
+
+.overdue {
+  color: #ff3b3bcf;
+  font-weight: bold;
+}
+
+.due-soon {
+  color: #ebf700c9;
+  font-weight: bold;
+}
+
+/* Select time and date field */
+.styled {
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(0, 153, 255, 0.4);
+  color: #d5e8ff;
+  padding: 8px 12px;
+  border-radius: 6px ;
+  outline: none;
+  width: 150px ;
+  height: 42px;
+  transition: 0.25s ease ;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Glow on focus */
+.styled:focus {
+  border-color: #00aaff;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.7);
+  background: rgba(20, 20, 20, 0.95);
+}
+
+
+/* POPUP PANEL (Calendar + Time Menu) */
+.react-datepicker {
+  background-color: #0f0f0f;
+  border: 1px solid rgba(0, 153, 255, 0.4) ;
+  box-shadow: 0 0 18px rgba(0, 153, 255, 0.25);
+  color: #cfe8ff ;
+  border-radius: 8px ;
+}
+
+/* Calendar header */
+.react-datepicker__header {
+  background-color: #141414;
+  color: white;
+  border-bottom: 1px solid rgba(0, 153, 255, 0.2);
+}
+
+/* Month + Day names */
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: #88bfff;
+  font-weight: 600;
+}
+
+/* Day numbers */
+.react-datepicker__day {
+  color: #d6eaff ;
+  border-radius: 4px ;
+  transition: 0.2s ease ;
+}
+
+/* Hover effect */
+.react-datepicker__day:hover {
+  background-color: rgba(0, 153, 255, 0.25) ;
+}
+
+.react-datepicker__day--selected {
+  background-color: #00aaff ;
+  color: #000 ;
+  box-shadow: 0 0 12px #364d59 ;
+  font-weight: 700 ;
+}
+
+/* Time selector panel */
+.react-datepicker__time-container {
+  border-left: 1px solid rgba(0, 153, 255, 0.2) ;
+}
+
+.react-datepicker__time-list-item {
+  background: #141414;
+  color: #d6eaff;
+  transition: 0.2s ease;
+}
+
+/* Hover time */
+.react-datepicker__time-list-item:hover {
+  background: rgba(0, 153, 255, 0.3);
+  color: #000;
+}
+
+/* Selected time */
+.react-datepicker__time-list-item--selected {
+  background-color: #00aaff;
+  color: #000;
+  box-shadow: 0 0 10px #00aaff;
+}
+
+
+/* ----------- Progress Tracker ----------- */
+.progress-tracker {
+  margin-top: 20px;
+  color: #bcd6ff;
+}
+
+.progress-bar {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--sys-border);
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6, #22d3ee);
+  box-shadow: var(--sys-glow);
+  transition: width 0.35s ease;
+}
+
+/* ----------- Clear All Button (Red Alert) ----------- */
+.clear-btn {
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 0 18px rgba(220, 38, 38, 0.6);
+  transition: 0.25s;
+  text-transform: uppercase;
+}
+
+.clear-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 28px rgba(220, 38, 38, 0.8);
+}
