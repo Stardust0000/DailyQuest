@@ -4,9 +4,12 @@ A simple and interactive task-tracking application built using **React + Vite**,
 
 This app helps you manage daily tasks like missions — Level Up every day! ⚔️✨
 
+This project was built to practice component-based architecture, state management, and persistent client-side storage in React.
+
 ---
 
 ## 🚀 Features
+- Page navigation using React Router
 
 ### ➕ Add Tasks  
 - Input task name  
@@ -37,6 +40,8 @@ This app helps you manage daily tasks like missions — Level Up every day! ⚔�
 - **JavaScript ES6**
 - **CSS3**
 - **LocalStorage**
+- **React Router**
+
 
 ---
 
@@ -118,7 +123,7 @@ npm run dev
 ---
 
 ## 📸 Screenshots
-
+(Screenshots will be added soon)
 
 ---
 
